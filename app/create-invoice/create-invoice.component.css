@@ -1,0 +1,134 @@
+#body {
+    margin: 0;
+    padding: 20px;
+    background: #f1f1f1;
+}
+
+#invoiceno {
+    width: 200px;
+}
+
+#summary {
+    width: 350px;
+}
+
+#add {
+    float: right;
+    background: #469fc3;
+}
+
+#total {
+    padding: 10px;
+    text-align: left;
+    border-radius: 5px;
+    border: 2px  solid lightgrey;
+    border-left: 50px solid lightgray;
+}
+
+#total span {
+    float: right;
+}
+#client {
+    width: 400px;
+}
+
+#submit {
+    float: right;
+}
+
+#error{
+    color: red;
+    text-align: center;
+    width: 100%;
+    margin: auto;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+#addClient {
+    color: grey;
+    font-style: bold;
+    font-size: 20px;
+}
+
+#addClient a {
+    font-style: italic;
+    text-decoration: none;
+}
+
+#sub span {
+    float: right;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f0f0f0;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.a4modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background-color: #f0f0f0;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 7% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 500px;
+}
+
+.modal-invoice-content {
+    padding: 20px;
+    background-color: #fefefe;
+    margin: 7% auto;
+    width: 21cm;
+    overflow: auto;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover, .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+h1{
+    font-size: 25px;
+    text-align: center;
+}
+
+.add{
+    float: right;
+}
+
+.unspecified::-webkit-input-placeholder {
+    color: #aaa;
+    font-style: italic;
+}
+
+
+.modal-invoice-content header {
+    font-size: 20px;
+    border-bottom: 1px solid #000
+}

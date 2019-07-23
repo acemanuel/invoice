@@ -1,0 +1,183 @@
+<div id="body">
+  <form (ngSubmit)="onSubmit(i)" #i="ngForm">
+    <div>
+      <label><b>INVOICE No.</b></label><br>
+      <input [(ngModel)]='length' name="invoice_no" id="invoiceno" type="text" class="form-control" required><br>
+      
+      <label><b>Customer Info</b></label>      
+      <button *ngIf='clients' type="button" class="btn btn-primary" style="margin-left: 140px; margin-bottom: 10px;" id="modalbtn" (click)="openModal()">Return Customer</button><br>  
+
+      <!-- <div *ngIf = 'clients' id="client">
+        <form (ngSubmit)="addClient(c)" #c="ngForm">
+          <label>Email</label><br>
+          <input [(ngModel)]='cemail' name="email" type="email" placeholder="Email Address (required)" class="form-control" required [readonly]='clientInfo'><br>
+          <label>Name</label><br>
+          <input [(ngModel)]='cname' name="name" type="text" placeholder="Full name (required)" class="form-control" required [readonly]='clientInfo'><br>
+          <label>Phone Number</label><br>
+          <input [(ngModel)]='cphone' name="phone" type="text" placeholder="Phone number (optional)" class="form-control" [readonly]='clientInfo'><br>
+          <label>Address</label><br>
+          <input [(ngModel)]='caddress' name="address" type="text" placeholder="Address (optional)" class="form-control" [readonly]='clientInfo'><br>
+          <p id="error">{{clientError}}</p><br>
+          <div *ngIf = '!clientInfo'>
+            <input type="reset" value="Cancel" class="btn">
+            <input type="submit" value="Add Client" class="btn btn-success add" [disabled]="!c.form.valid">
+          </div>
+          <button *ngIf='clientInfo' type="reset" class="btn" (click)='clearClientinfo()'>Cancel</button>
+        </form>
+      </div><br> -->
+
+      <div id="client">
+        <label>Email</label><br>
+        <input [(ngModel)]='cemail' name="email" type="email" placeholder="Email Address (required)" class="form-control" required [readonly]='clientInfo'><br>
+        <label>Name</label><br>
+        <input [(ngModel)]='cname' name="name" type="text" placeholder="Full name (required)" class="form-control" required [readonly]='clientInfo'><br>
+        <label>Phone Number</label><br>
+        <input [(ngModel)]='cphone' name="phone" type="text" [placeholder]="placeholderPhone" class="form-control" [readonly]='clientInfo' id="cphone"><br>
+        <label>Address</label><br>
+        <input [(ngModel)]='caddress' name="address" type="text" [placeholder]="placeholderAddress" class="form-control" [readonly]='clientInfo' id="caddress"><br>
+        <button type="button" class="btn" (click)='clearClientinfo()'>Cancel</button>
+      </div><br>
+    </div>
+    <div class="table-responsive">
+      <table class="table m-t-30">
+        <thead>
+          <tr>
+            <th *ngFor="let col of columns">{{col}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <textarea [(ngModel)]="item.description" name="description" rows="2" placeholder="Item name or Description" class="form-control" required></textarea>
+            </td>
+            <td>
+              <input [(ngModel)]="item.quantity" name="quantity" type="number" class="form-control" required>
+            </td>
+            <td>
+              <input [(ngModel)]="item.price" name="price" type="number" class="form-control" required>
+            </td>
+            <td>
+              <input [(ngModel)]="item.quantity * item.price" name="amount" class="form-control" readonly>
+            </td>
+            <td>
+              <button type="reset" class="btn">Cancel</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <button [disabled]="!i.form.valid" (click)="addItem()" type="button" class="btn btn-success" id="add">Add Item +</button><br><br><br>
+      
+      <div *ngIf="hideSave()">
+        <table class="table m-t-30">
+          <thead>
+            <tr>
+              <th *ngFor = "let col of columns">{{col}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor = "let it of getters; let i = index">
+              <td>
+                {{it.description}}
+              </td>
+              <td>
+                {{it.quantity}}
+              </td>
+              <td>
+                {{it.price}}
+              </td>
+              <td>
+                {{it.quantity * it.price}}
+              </td>
+              <td>
+                <button (click)="removeItem(i)" type="button" class="btn"><i class="fa fa-trash"></i></button><br>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="float: right; width: 500px;"><label><b>INVOICE Summary</b></label><br>
+        <textarea ngModel name="invoice_description" rows="3" type="text" placeholder="Summary of Invoice" class="form-control" id="summary"></textarea><br><br>
+
+        <div id="sub">
+          <p style="border-top: 1px solid grey;"><b>Sub-Total: <span>{{subTotal}}</span></b></p><br>
+          <p style="border-top: 1px solid grey;"><b>V.A.T. ({{vat}}%): <span>{{vatTotal}}</span></b></p><br>
+        </div>
+      
+        <div id="total">
+          <p><b>TOTAL: <span>{{total}}</span></b></p>
+        </div><br><br>
+        
+      </div>   
+      
+    </div>
+    <button *ngIf = 'hideSave()' type="submit" class="btn btn-success" [disabled] = "i.form.valid" style="float: right;">Save and Continue</button><br><br>
+
+    <p id="error">{{error}}</p>
+  </form>
+
+  <div id="modaldiv" class="modal">
+    <div class="modal-content">
+      <p class="close" (click)='closeModal()'>&times;</p>
+      <div class="client">
+          <form (ngSubmit)="returnClient(d)" #d="ngForm">
+            <h1>Return a Customer</h1><br>
+            <label>Customer's Email</label><br>
+            <input [(ngModel)]='email' name="email" type="email" placeholder="enter customer's email address" class="form-control" required><br>
+            <p id="error">{{returnError}}</p><br>
+            <input type="button" value="Close" (click)='closeModal()' class="btn">
+            <input type="submit" value="Return Customer Info" class="btn btn-success add" [disabled]="!d.form.valid">
+          </form>
+        </div>
+    </div> 
+  </div>
+
+  <!-- <div class="a4modal" id="invoicemodal">
+    <div class="modal-invoice-content">
+      <header>
+        <p><b>{{user}} <span style="float: right">{{length}}</span></b></p>
+        <p >Date:</p>
+      </header><br>
+
+      <div>
+        <p>FROM:</p>
+        <p><b>{{user}}</b></p>
+        <p>{{useremail}}</p>
+        <p>{{userphone}}</p><br>
+
+        <p>SENT TO:</p>
+        <p><b>{{cname}}</b></p>
+        <p>{{cemail}}</p>
+        <p>{{cphone}}</p><br>
+
+        <table class="table m-t-30">
+          <thead>
+            <tr>
+              <th>DESCRIPTION</th>
+              <th>QTY.</th>
+              <th>UNIT PRICE</th>
+              <th>AMOUNT</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor = "let it of getters; let i = index">
+              <td>
+                {{it.description}}
+              </td>
+              <td>
+                {{it.quantity}}
+              </td>
+              <td>
+                {{it.price}}
+              </td>
+              <td>
+                {{it.quantity * it.price}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+  </div> -->
+</div>

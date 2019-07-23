@@ -1,0 +1,18 @@
+<body>
+  <div class="client">
+    <form (ngSubmit)="submit(a)" #a="ngForm">
+      <h1>Client: {{client}}</h1>
+      <label>Email *</label><br>
+      <input [(ngModel)]='email' name="email" type="email" placeholder="Email Address (required)" class="form-control" required><br>
+      <label>Name *</label><br>
+      <input [(ngModel)]='name' name="name" type="text" placeholder="Full name (required)" class="form-control" required><br>
+      <label>Phone Number</label><br>
+      <input [(ngModel)]='phone' name="phone" type="tel" placeholder="Phone number (optional)" class="form-control"><br>
+      <label>Address</label><br>
+      <input [(ngModel)]='address' name="address" type="text" placeholder="Address (optional)" class="form-control"><br><br>
+      <p id="error">{{error}}</p><br>
+      <input type="button" value="Cancel" class="btn" routerLink="/dashboard/clients">
+      <input type="submit" value="Save" class="btn btn-success add" [disabled]="!a.form.valid">
+    </form>
+  </div>
+</body>

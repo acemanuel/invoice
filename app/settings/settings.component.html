@@ -1,0 +1,43 @@
+<div style="padding-bottom: 50%;">
+  <section id="logo">
+      <label>Upload your Business Logo:</label><br>
+      <input type="file" class="form-control" (change)="upload($event)"><br>
+      <img [src]="imgfile" class="rounded mb-3" width="180" alt=""><br>
+      <button (click)="finalUpload()" type="button" class="btn btn-success">Upload Logo</button>
+  </section>
+  
+  <section id="pass">
+      <form (ngSubmit)='changePassword(a)' #a='ngForm'>
+          <h1>Password Settings</h1><br>
+          <label>Current Password</label><br>
+          <input type="password" placeholder="enter current password" class="form-control" ngModel name="cpassword" required><br>
+          <label>New Password</label><br>
+          <input type="password" placeholder="enter a new password" class="form-control" ngModel name="npassword" required><br>
+          <label>Confirm New Password</label><br>
+          <input type="password" placeholder="confirm new password" class="form-control" ngModel name="cfpassword" required><br>
+          <p id="error">{{error}}</p><br>
+          <button type="reset" class="btn">Cancel</button>
+          <button [disabled] = "!a.form.valid" type="submit" class="btn btn-success" style="float: right">Change Password</button>
+      </form>
+  </section>
+  
+  <section id="content">
+      <form (ngSubmit)='onSubmit(x)' #x='ngForm' >
+          <h1>Service Settings</h1><br>
+          <label>Email:</label><br>
+          <input type="email" class="form-control" [(ngModel)]='email' name='email' required><br>
+          <label>Business Url:</label><br>
+          <input type="text" class="form-control" [(ngModel)]='url' name='service_url' required><br>
+          <label>Business Name:</label><br>
+          <input type="text" [(ngModel)]='name' name='service_name' class="form-control" required><br>
+          <label>Address:</label><br>
+          <input type="text" [(ngModel)]='address' name='address' class="form-control" required><br>
+          <label>Phone:</label><br>
+          <input type="text" [(ngModel)]='phone' name='phone' class="form-control" required><br>
+          <label>V.A.T. (%):</label><br>
+          <input type="text" [(ngModel)]='vat' name="vat" class="form-control"><br><br>
+          
+          <button [disabled] = "!x.form.valid" class="btn btn-success" style="float: right">Save</button><br><br>
+      </form>
+  </section>
+</div>  

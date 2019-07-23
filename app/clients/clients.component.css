@@ -1,0 +1,26 @@
+a{
+    text-decoration: none;
+    color: gray;
+}
+
+h1{
+    text-align: center;
+    border: 2px solid black;
+    width: 12%;
+    float: left;
+    margin-top: 20px;
+    border-radius: 20px;
+    font-size: 30px;
+    margin-bottom: 70px;
+}
+
+#hidePhone {
+    color: grey;
+    font-style: italic;
+}
+
+#inv {
+    color: grey;
+    font-style: italic;
+    font-size: 20px;
+}

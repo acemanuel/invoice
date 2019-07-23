@@ -1,0 +1,33 @@
+<p id="inv" *ngIf="!clients">No client added yet. Start adding your clients now.</p>
+<h1><a routerLink="/dashboard/add_client">Add Client</a></h1>
+
+<table class="table m-t-30" *ngIf="clients">
+  <thead>
+    <tr>
+      <th>S/N</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tr *ngFor = "let client of clients; let i = index">
+    <td>
+      {{i+1}}
+    </td>
+    <td>
+      {{client.name}}
+    </td>
+    <td>
+      {{client.email}}
+    </td>
+    <td>
+      {{client.phone}} <p id = "hidePhone" *ngIf = "hidePhone(i)">phone not specified</p>
+    </td>
+    <td>
+      <button type="button" class="btn" (click)="edit(client)"><i class="fa fa-edit"></i></button> |
+      <button type="button" class="btn" (click)="delete(client)"><i class="fa fa-trash"></i></button>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,148 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+   font-family: sans-serif;
+   background-color: #f1f1f1;
+   min-height: 100vh;
+   top: 0;
+   bottom: 0;
+}
+
+#sidemenu {
+   background: rgb(61, 59, 61);
+   width: 280px;
+   position: fixed;
+   top: 0;
+   bottom: 0;
+}
+
+nav {
+    padding-top: 10px;
+}
+
+nav a {
+   display: block;
+   color: #f1f1f1;
+   text-decoration: none;
+   padding: 15px 30px;
+   font-weight: 300;
+   transition: all 0.3s ease-in-out;
+}
+
+nav #services a:hover {
+    background: rgb(32, 31, 32);
+    border-left: 5px solid greenyellow;
+    padding: 15px 30px 15px 25px;
+}
+
+nav a.active {
+   background: rgb(32, 31, 32);
+   border-left: 5px solid greenyellow;
+   padding: 15px 30px 15px 25px;
+}
+
+.routed {
+    background: rgb(32, 31, 32);
+    border-left: 5px solid greenyellow;
+    padding: 0px 30px 15px 25px;
+}
+
+nav a.active .fa {
+    color: greenyellow;
+}
+
+nav a .fa {
+    color: #f1f1f1;
+    font-size: 1.4rem;
+    margin-right: 0.8rem;
+    display: inline-block;
+    width: 30px;
+    position: relative;
+    top: 2px;
+}
+
+nav a .fa:hover {
+    color: greenyellow;
+}
+
+#top h1{
+    color: #f1f1f1;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+}
+
+#top {
+    background: rgb(32, 31, 32);
+    height: 100px;
+    width: 100%;   
+    position: fixed;
+}
+
+#pagecontent {
+    margin-left: 280px;
+}
+
+#body {
+    padding: 30px;
+    padding-top: 150px;
+}
+
+#logout {
+    margin-top: 80px;
+    padding: 0;
+    cursor: pointer;
+}
+
+#logout:hover {
+    background: rgb(32, 31, 32);
+    border-left: 5px solid greenyellow;
+    color: #f1f1f1;
+}
+
+.nav {
+    color: white;
+}
+
+#menu-toggle {
+    background-color: transparent;
+}
+
+#menu-toggle .fa{
+    color: #f1f1f1;
+    font-size: 25px;
+}
+
+#logo {
+    height: 80px;
+    width: 80px;
+    float: right;
+    margin-right: 20px;
+    margin-top: -65px;
+    border-radius: 50px;
+}
+
+#inv {
+    color: white;
+    margin: 20px;
+    font-size: 25px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#user {
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+    margin: 50px 10px;
+}
+
+#maincontent.menuDisplayed #sidemenu {
+    width: 0;
+    display: none;
+}
+#maincontent.menuDisplayed #pagecontent {
+    margin-left: 0;
+    background-color: #f1f1f1;
+}

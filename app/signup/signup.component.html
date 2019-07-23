@@ -1,0 +1,30 @@
+<body id="body">
+  <div class="container-fluid">
+    <div class ="col-md-4 myform">
+      <img src="../../assets/img/logo.png" alt="logo" id="logo">
+      <div>
+        <h1 style="text-align: center">Create an account today</h1>
+      </div>
+      <div class="form-group">
+        <form id="form" (ngSubmit)="sub(x)" #x="ngForm">
+          <label>Email:</label><br>
+          <input type="email" ngModel name="email" class="form-control" placeholder="email"><br>
+          <label>Password:</label><br>
+          <input type="password" ngModel name="password" class="form-control" placeholder="password"><br>
+          <label>Confirm Password:</label><br>
+          <input type="password" ngModel name="confirmpassword" class="form-control" placeholder="confirm password" ><br>
+          <div class="row">
+            <div class="col-md-6">
+              <button type="submit" class="btn btn-success">Signup</button>
+            </div>
+            <div class="col-md-6">
+              <input type="checkbox"> Remember me
+            </div>
+          </div>
+          <p id="h4" style="text-align: center">Already registered?<a routerLink="/login"> Sign in Here </a></p>
+        </form>
+        <p id="error">{{error}}</p>
+      </div>
+    </div>
+  </div>
+</body>

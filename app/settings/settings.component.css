@@ -1,0 +1,39 @@
+#logo {
+    width: 500px;
+    padding: 20px;
+    background: white;
+    border: 2px dashed gray;
+}
+
+#pass {
+    width: 500px;
+    padding: 20px;
+    background: white;
+    margin-top: 50px;
+    border: .5px dotted grey;
+}
+
+#content {
+    margin: -666px 650px;
+    border: .7px solid gray;
+    border-radius: 8px;
+    width: 500px;
+    padding: 20px;
+    background: #fff;
+    padding-bottom: 20px;
+}
+
+h1 {
+    font-size: 25px;
+    text-align: center;
+}
+
+#error{
+    color: red;
+    text-align: center;
+    background-color: white;
+    width: 100%;
+    margin: auto;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}

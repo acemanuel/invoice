@@ -1,0 +1,78 @@
+/* #date{
+    width: 18%;
+    margin-left: 83%;
+    margin-bottom: 40px;
+    font-family: sans-serif;
+} */
+/* span{
+    padding: 10%;
+} */
+/* #amount{
+    padding-left: 2%;
+}
+h1{
+    text-align: center;
+    margin-bottom: 3%;
+}
+.mytable{
+    float: left;
+} */
+/* #sum{
+    float: left;
+    text-align: left;
+    font-family: serif;
+} */
+td{
+    text-align: left;
+}
+/* .back{
+    margin: 30% 5px 5% 220%;
+} */
+table{
+    font-family: cursive;
+}
+
+
+
+.a4 {
+    margin: auto;
+    padding: 80px;
+    /* width: 21cm;
+    height: 29.7cm;
+    background-color: white;
+    overflow: auto; */
+    /* padding: 20px; */
+    background-color: #fefefe;
+    /* margin: 7% auto; */
+    width: 21cm;
+    overflow: auto;
+}
+
+#inv_no {
+    float: right;
+}
+
+header {
+    font-size: 30px;
+    border-bottom: 1px solid grey;
+}
+
+#total {
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px  solid lightgrey;
+    border-left: 50px solid lightgray;
+}
+
+#total span {
+    float: right;
+}
+
+#sub {
+    width: 300px;
+    float: right;
+}
+
+#sub span {
+    float: right;
+}

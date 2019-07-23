@@ -1,0 +1,29 @@
+<body>
+  <div id="maincontent">
+    <section id="sidemenu">
+      <p id="inv"><b>INVOICE</b></p>
+      <img src="{{logo}}" alt="logo" id="logo">
+      <p id="user">{{user}}</p>
+      <nav>
+        <div *ngIf="!hideList()" id="services">
+          <a routerLink="/dashboard" routerLinkActive="routed"><i class="fa fa-home"></i> Home</a>
+          <a routerLink="/dashboard/invoice" routerLinkActive="routed"><i class="fa fa-sticky-note-o"></i>Invoices</a>
+          <a routerLink="/dashboard/clients" routerLinkActive="routed"><i class="fa fa-user-circle-o"></i>Clients</a>
+          <a routerLink="/dashboard/settings" routerLinkActive="routed"><i class="fa fa-cog"></i>Settings</a>
+        </div>
+        <div id="logout">
+          <a (click)="logout()"><i class="fa fa-sign-out"></i>Logout</a>
+        </div>
+      </nav>
+    </section>
+    <div id="pagecontent">
+      <header id="top">
+        <button type="button" id="menu-toggle" class="btn"><i class="fa fa-bars"></i></button><br>
+        <h1>Welcome {{user}}</h1>
+      </header>
+      <div id="body">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>  
+</body>
